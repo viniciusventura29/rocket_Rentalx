@@ -1,9 +1,13 @@
 import express from "express";
 
+import { categoriesRoutes } from "./routes/categories.routes";
+
 const app = express();
 
-app.get("/", (request, response) => {
-  return response.json({ message: "Hello World!" });
-});
+const port = 3000;
 
-app.listen(3000, () => console.log("It's working"));
+app.use(express.json());
+
+app.use("/categories", categoriesRoutes);
+
+app.listen(port, () => console.log(`It's running on port ${port}`));
