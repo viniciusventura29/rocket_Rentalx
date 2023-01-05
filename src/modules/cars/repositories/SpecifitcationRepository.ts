@@ -7,9 +7,20 @@ import {
 class SpecificationRepository implements ISpecificationRepository {
     private specifications: Specification[];
 
+    private static INSTANCE;
+
     constructor() {
         this.specifications = [];
     }
+
+    public static getInstance() {
+        if (!SpecificationRepository.INSTANCE) {
+            this.INSTANCE = new SpecificationRepository();
+        }
+
+        return SpecificationRepository.INSTANCE;
+    }
+
     findByName(name: string) {
         const specification = this.specifications.find(
             (specification) => specification.name === name
