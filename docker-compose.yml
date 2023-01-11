@@ -10,7 +10,7 @@ services:
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
-            - POSTGRES_DB=rentalx
+            - POSTGRES_DB=rentx
         volumes:
             - pgdata:/data/postgres
     app:
@@ -24,7 +24,6 @@ services:
             - database_ignite
         depends_on:
             - database_ignite
-
 volumes:
     pgdata:
         driver: local
