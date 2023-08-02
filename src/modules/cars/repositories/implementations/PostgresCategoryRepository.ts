@@ -1,7 +1,7 @@
 import {
     ICategoryRepository,
     ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 class PostgresCategoryRepository implements ICategoryRepository {
     findByName(name: string) {
