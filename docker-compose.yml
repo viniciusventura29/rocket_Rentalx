@@ -10,17 +10,17 @@ services:
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
-            - POSTGRES_DB=rentx
+            - POSTGRES_DB=database_ignite
         volumes:
             - pgdata:/data/postgres
     app:
         build: .
         container_name: rentx
         ports:
-            - 3000:3000
+            - 3333:3333
         volumes:
             - .:/usr/app
-        links:
+        links: 
             - database_ignite
         depends_on:
             - database_ignite
